@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!submenu || !arrow) return;
 
     // 桌面版 - hover 显示
-    arrow.addEventListener("mouseenter", () => {
+    /*arrow.addEventListener("mouseenter", () => {
       if (window.innerWidth > 600) {
         submenu.style.display = "block";
         drop.classList.add("open");
@@ -30,6 +30,15 @@ document.addEventListener("DOMContentLoaded", function () {
       if (window.innerWidth > 600) {
         submenu.style.display = "none";
         drop.classList.remove("open");
+      }
+    });*/
+
+    arrow.addEventListener("click", () => {
+      if (window.innerWidth > 600) {
+        e.preventDefault();
+        const isOpen = submenu.style.display === "block";
+        submenu.style.display = isOpen ? "none" : "block";
+        drop.classList.toggle("open", !isOpen);
       }
     });
 
