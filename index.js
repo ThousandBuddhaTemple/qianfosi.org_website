@@ -7,7 +7,24 @@ function myFunction() {
     x.className = "topnav";
   }
 }
+document.addEventListener('DOMContentLoaded', function() {
+  const slides = document.querySelectorAll('.slide');
+  let currentSlide = 0;
 
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+      if (i === index) {
+        slide.classList.add('active');
+      }
+    });
+  }
+
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }, 5000); // Change slide every 5 seconds
+})
 // 控制下拉菜单显示/隐藏
 document.addEventListener("DOMContentLoaded", function () {
   const dropdowns = document.querySelectorAll(".footer-dropdown");
