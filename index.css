@@ -142,6 +142,44 @@
   display: block;
 }
 
+/* main */
+.c-item {
+  height: 680px;
+}
+
+.c-img {
+  height: 160%;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+
+.visit_index_cards{
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  flex-wrap: wrap;
+}
+
+.visit_index_card{
+  width: 300px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #f8f9fa;
+  text-align: center;
+  padding: 20px;
+}
+
+.visit_index_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer styles */
+
 .footer {
   background-color: #333;
   color: #fff;
@@ -150,8 +188,8 @@
   padding: 20px;
   padding-left: 300px;
   padding-right: 300px;
-  margin-left: -8px;
-  position: fixed;
+  margin-left: 0px;
+  position: relative;
   bottom: 0;
   width: 100%;
   box-sizing: border-box;
@@ -212,6 +250,7 @@
 
 .footer-submenu a {
   color: #fff;
+  background-color: #FF69B4;
 }
 
 .footer-dropdown .footer-arrow {
@@ -291,6 +330,11 @@
     width: 100%;
     text-align: left;
   }
+
+  /* main */
+.c-item {
+  height: 480px;
+}
 
   .footer {
     flex-direction: column;
