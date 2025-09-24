@@ -8,6 +8,46 @@ function myFunction() {
   }
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    const showMoreBtn = document.getElementById('show-more-btn');
+    const showLessBtn = document.getElementById('show-less-btn');
+    const timelineItems = document.querySelectorAll('.timeline .timeline-item');
+    const itemsToShowInitially = 2;
+
+    // Initially hide the extra items
+    timelineItems.forEach((item, index) => {
+        if (index >= itemsToShowInitially) {
+            item.classList.add('hidden');
+        }
+    });
+
+    // Hide the "show more" button if there are not enough items
+    if (timelineItems.length <= itemsToShowInitially) {
+        if(showMoreBtn) showMoreBtn.style.display = 'none';
+    }
+
+    if (showMoreBtn && showLessBtn) {
+        showMoreBtn.addEventListener('click', function() {
+            timelineItems.forEach((item, index) => {
+                if (index >= itemsToShowInitially) {
+                    item.classList.remove('hidden');
+                }
+            });
+            showMoreBtn.style.display = 'none';
+            showLessBtn.style.display = 'inline-block';
+        });
+
+        showLessBtn.addEventListener('click', function() {
+            timelineItems.forEach((item, index) => {
+                if (index >= itemsToShowInitially) {
+                    item.classList.add('hidden');
+                }
+            });
+            showLessBtn.style.display = 'none';
+            showMoreBtn.style.display = 'inline-block';
+        });
+    }
+});
 // 控制下拉菜单显示/隐藏
 document.addEventListener("DOMContentLoaded", function () {
   const dropdowns = document.querySelectorAll(".footer-dropdown");
@@ -17,21 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const arrow = drop.querySelector(".footer-arrow");
 
     if (!submenu || !arrow) return;
-
-    // 桌面版 - hover 显示
-    /*arrow.addEventListener("mouseenter", () => {
-      if (window.innerWidth > 600) {
-        submenu.style.display = "block";
-        drop.classList.add("open");
-      }
-    });
-
-    arrow.addEventListener("mouseleave", () => {
-      if (window.innerWidth > 600) {
-        submenu.style.display = "none";
-        drop.classList.remove("open");
-      }
-    });*/
 
     arrow.addEventListener("click", () => {
       if (window.innerWidth > 600) {
