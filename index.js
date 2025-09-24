@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
   setInterval(() => {
     currentSlide = (currentSlide + 1) % slides.length;
     showSlide(currentSlide);
-  }, 5000); // Change slide every 5 seconds
+  }, 3000); // Change slide every 5 seconds
 })
 // 控制下拉菜单显示/隐藏
 document.addEventListener("DOMContentLoaded", function () {

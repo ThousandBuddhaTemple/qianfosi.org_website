@@ -216,7 +216,21 @@ html, body {
 
 .visit_index h1{
   margin-top: 50px;
-  margin-left: 50px;
+  margin-left: 150px;
+  font-size: 36px;
+  color: #333;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 4px solid #d1882f;
+  padding-bottom: 10px;
+  width: fit-content;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .visit_index_cards{
@@ -224,7 +238,7 @@ html, body {
   margin-bottom: 40px;
   display: flex;
   justify-content: center;
-  gap: 100px;
+  gap: 60px;
   flex-wrap: wrap;
 }
 
@@ -238,7 +252,17 @@ html, body {
   text-align: center;
   padding: 20px;
 }
-
+.visit_index_card img{
+  width: auto;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.visit_index_card h2{
+  margin-top: 15px;
+  font-size: 24px;
+  color: #333;
+}
 .visit_index_card_button{
   margin-top: 20px;
   padding: 10px 20px;
@@ -261,7 +285,6 @@ html, body {
   background-size: cover;
   background-position: center;
   padding: 60px 0;
-  margin-bottom: 20px;
   text-align: center;
   color: white;
   position: relative;
@@ -281,7 +304,12 @@ html, body {
 }
 
 .announcement h1 {
-  font-size: 2.5em;
+  font-size: 5rem;
+  margin-bottom: 10px;
+  margin-left: 150px;
+  position: relative;
+  color: #fff;
+
 }
 
 .announcement h1, .announcement p {
@@ -290,6 +318,10 @@ html, body {
   margin: 10px 20px; /* Add some horizontal margin for text */
 }
 
+.announcement p {
+  font-size: 1.2rem;
+  margin-top: 0;
+}
 /* Footer styles */
 
 .footer {
@@ -460,10 +492,61 @@ html, body {
     font-size: 24px; /* Reduce font size for mobile */
     margin-top: 0;
   }
+  .hero-text button {
+    font-size: 16px; /* Reduce button font size for mobile */
+    padding: 8px 16px;
+  }
 
-.c-item {
-  height: 480px;
-}
+  .announcement h1 {
+    font-size: 3rem;
+    margin-left: 20px;
+  }
+
+  .announcement p {
+    font-size: 1rem;
+    margin: 10px 20px;
+  }
+
+  .visit_index h1{
+    font-size: 28px;
+    margin-left: 20px;
+    margin-top: 30px;
+  }
+
+  .visit_index_cards{
+    gap: 20px;
+    margin: 20px;
+  }
+
+  .visit_index_card{
+    width: 90%;
+  }
+
+  .visit_index_card img {
+    height: 80px;
+  }
+  .visit_index_card h2 {
+    font-size: 20px;
+  }
+
+  .visit_index_card_button {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #d1882f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+    }
+
+  .visit_index_card_button:hover {
+    background-color: #a66c24;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* footer */
 
   .footer {
     flex-direction: column;

@@ -16,6 +16,10 @@
         rel="stylesheet">
     <!-- Import Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- EmailJS -->
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
 </head>
 
 <body>
@@ -51,7 +55,46 @@
         </div>
     </header>
     <main>
-        
+        <section class="contact-section">
+            <h1>聯系我們</h1>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>我們的聯絡方式</h3>
+                    <p><i class="fas fa-phone"></i> 電話: +1 (617) 773-7745</p>
+                    <p><i class="fas fa-envelope"></i> 郵箱: 1000buddha@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 地址: 53 Massachusetts Ave, Quincy, MA 02169</p>
+                </div>
+                <div class="contact-form-container">
+                    <h3>給我們留言</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">姓名</label>
+                            <input type="text" id="name" name="from_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">電話</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">郵箱</label>
+                            <input type="email" id="email" name="from_email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">留言</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">提交</button>
+                    </form>
+                    <p id="form-status"></p>
+                </div>
+            </div>
+            <div class="map-container">
+                <h3>我們的地點</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2951.758376170669!2d-71.0097720234731!3d42.25708897119427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e36398b1111111%3A0x89e36398b1111111!2s53%20Massachusetts%20Ave%2C%20Quincy%2C%20MA%2002169%2C%20USA!5e0!3m2!1sen!2sus!4v1701800000000!5m2!1sen!2sus"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
     </main>
     <footer class="footer">
     <!-- 左侧导航 -->

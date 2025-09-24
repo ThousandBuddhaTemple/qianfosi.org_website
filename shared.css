@@ -1,24 +1,21 @@
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
-  font-family: 'Poppins', sans-serif; /* Ensure font is consistent */
-}
-
-main {
-  flex-grow: 1; /* Allows main content to fill available space */
-}
-
 /* Add a black background color to the top navigation */
 .topnav {
   display: flex;
   justify-content: space-around;
-  background-color: #d1882f;
+  background-color: transparent;
   overflow: hidden;
-  margin: -8px;
   padding-left: 240px;
   padding-right: 240px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+.topnav:hover {
+    background-color: #d1882f;
 }
 
 /* Style the links inside the navigation bar */
@@ -154,105 +151,6 @@ main {
   display: block;
 }
 
-.footer {
-  background-color: #333;
-  color: #fff;
-  display: flex;
-  justify-content: space-around;
-  padding: 20px;
-  padding-left: 300px;
-  padding-right: 300px;
-  width: 100%;
-  box-sizing: border-box;
-  margin-top: auto; /* Pushes footer to the bottom with flexbox */
-  z-index: 10;
-}
-
-.footer-left {
-  flex: 1;
-}
-
-.footer-nav {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-nav li {
-  margin: 8px 0;
-  position: relative; /* 为footer-submenu定位 */
-}
-
-.footer-nav li.footer-dropdown {
-  position: relative; /* 父元素定位 */
-  display: flex;
-  align-items: center; /* 保证文字和箭头在一行 */
-  gap: 5px; /* 文字和箭头间距 */
-}
-
-.footer-nav a {
-  color: #d1882f;
-  text-decoration: none;
-}
-
-.footer-nav a:hover {
-  text-decoration: underline;
-}
-
-.footer-submenu {
-  list-style: none;
-  margin: 0;
-  padding: 8px;
-  display: none; /* 默认隐藏 */
-  position: absolute;
-  left: 15%;   /* 菜单显示在右侧，也可以改为 bottom:0; */
-  top: -150%;
-  background-color: #444;
-  min-width: 120px;
-  z-index: 100;
-  border-radius: 4px;
-}
-
-.footer-submenu li {
-
-  margin: 0;
-  padding: 5px 15px;
-  white-space: nowrap; /* 防止换行 */
-}
-
-.footer-submenu a {
-  color: #fff;
-}
-
-.footer-dropdown .footer-arrow {
-  font-size: 0.8em;
-  margin-left: 5px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  color: #d1882f;
-  display: inline-block;
-}
-
-.footer-dropdown.open .footer-arrow {
-  transform: rotate(90deg); /* 展开时箭头转向 */
-}
-
-.footer-right {
-  flex: 1;
-  text-align: right;
-}
-
-.footer-right p {
-  margin: 6px 0;
-  color: #fff;
-}
-
-.footer-right i {
-  color: #d1882f;
-  margin-right: 6px;
-}
-
-
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 600px) {
 
@@ -260,6 +158,12 @@ main {
     display: block;
     padding-left: 0px;
     padding-right: 0px;
+    position: static; /* Revert for mobile */
+    background-color: #d1882f; /* Revert for mobile */
+  }
+
+  .topnav:hover {
+    background-color: #d1882f; /* Keep color on hover for mobile */
   }
 
   .topnav a:not(:first-child), .dropdown .dropbtn{
@@ -301,65 +205,4 @@ main {
     width: 100%;
     text-align: left;
   }
-
-  .footer {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .footer-right {
-    text-align: left;
-    margin-top: 15px;
-  }
-
-  .footer-submenu {
-    left: 0; /* 手机版时下拉在下方 */
-    top: 100%;
-  }
-}
-
-/* Hero Section */
-.hero-section {
-    height: 60vh;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    position: relative;
-}
-
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
-}
-
-.hero-text {
-    position: relative; /* To be on top of the overlay */
-    z-index: 2;
-}
-
-.hero-text h1 {
-    font-size: 4rem;
-    font-weight: 600;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
-}
-
-@media screen and (max-width: 600px) {
-    .hero-section {
-        height: 40vh;
-    }
-    .hero-text h1 {
-        font-size: 2.5rem;
-    }
 }

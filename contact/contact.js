@@ -1,4 +1,4 @@
-/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+/* Topnav responsive function */
 function myFunction() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -8,46 +8,46 @@ function myFunction() {
   }
 }
 
-// 控制下拉菜单显示/隐藏
 document.addEventListener("DOMContentLoaded", function () {
+  // Footer dropdown logic
   const dropdowns = document.querySelectorAll(".footer-dropdown");
 
   dropdowns.forEach(drop => {
     const submenu = drop.querySelector(".footer-submenu");
     const arrow = drop.querySelector(".footer-arrow");
 
-    if (!submenu || !arrow) return;
-
-    // 桌面版 - hover 显示
-    /*arrow.addEventListener("mouseenter", () => {
-      if (window.innerWidth > 600) {
-        submenu.style.display = "block";
-        drop.classList.add("open");
-      }
-    });
-
-    arrow.addEventListener("mouseleave", () => {
-      if (window.innerWidth > 600) {
-        submenu.style.display = "none";
-        drop.classList.remove("open");
-      }
-    });*/
-
-    arrow.addEventListener("click", () => {
-      if (window.innerWidth > 600) {
+    if (submenu && arrow) {
+      arrow.addEventListener("click", (e) => {
         e.preventDefault();
         const isOpen = submenu.style.display === "block";
         submenu.style.display = isOpen ? "none" : "block";
         drop.classList.toggle("open", !isOpen);
-      }
-    });
-
-    // 手机版 - 点击箭头切换
-    arrow.addEventListener("click", (e) => {
-      e.preventDefault();
-      const isOpen = submenu.style.display === "block";
-      submenu.style.display = isOpen ? "none" : "block";
-      drop.classList.toggle("open", !isOpen);
-    });
+      });
+    }
   });
+
+  // Contact form submission logic
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    // Initialize EmailJS with your Public Key
+    emailjs.init('YOUR_PUBLIC_KEY'); // <-- REPLACE WITH YOUR PUBLIC KEY
+
+    contactForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const status = document.getElementById('form-status');
+      status.textContent = '正在發送...';
+      status.style.color = 'black';
+
+      // These IDs from the previous steps
+      emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this) // <-- REPLACE IDS
+        .then(function() {
+          status.textContent = '留言發送成功!';
+          status.style.color = 'green';
+          contactForm.reset();
+        }, function(error) {
+          status.textContent = '發送失敗，請重試。';
+          status.style.color = 'red';
+        });
+    });
+  }
 });
