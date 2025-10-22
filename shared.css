@@ -1,26 +1,37 @@
-/* Add a black background color to the top navigation */
+/* General body styles for sticky footer and reset default margins */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif; /* Ensure font is consistent */
+}
+
+main {
+  flex-grow: 1; /* Allows main content to fill available space */
+}
+
+/* Top Navigation Bar */
 .topnav {
   display: flex;
   justify-content: space-around;
-  background-color: transparent;
+  background-color: #d1882f;
   overflow: hidden;
   padding-left: 240px;
   padding-right: 240px;
-  position: absolute;
-  width: 100%;
-  top: 0;
+  box-sizing: border-box; /* Ensure padding is included in width */
   z-index: 10;
-  box-sizing: border-box;
-  transition: background-color 0.3s ease;
-}
-
-.topnav:hover {
-    background-color: #d1882f;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
-  margin-bottom: -5px;
+  /* margin-bottom: -5px; - Removed to fix gap */
   float: left;
   display: block;
   color: #f2f2f2;
@@ -66,6 +77,7 @@
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding-top: 5px; /* Added to bridge the gap */
   z-index: 1;
 }
 
@@ -121,6 +133,7 @@
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding-top: 5px; /* Added to bridge the gap */
   z-index: 1;
 }
 
@@ -151,19 +164,110 @@
   display: block;
 }
 
-/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 600px) {
+/* Footer styles */
+.footer {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  padding-left: 300px;
+  padding-right: 300px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: auto; /* Pushes footer to the bottom with flexbox */
+  z-index: 10;
+}
 
+.footer-left {
+  flex: 1;
+}
+
+.footer-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav li {
+  margin: 8px 0;
+  position: relative; /* 为footer-submenu定位 */
+}
+
+.footer-nav li.footer-dropdown {
+  position: relative; /* 父元素定位 */
+  display: flex;
+  align-items: center; /* 保证文字和箭头在一行 */
+  gap: 5px; /* 文字和箭头间距 */
+}
+
+.footer-nav a {
+  color: #d1882f;
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+}
+
+.footer-submenu {
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  display: none; /* 默认隐藏 */
+  position: absolute;
+  left: 15%;   /* 菜单显示在右侧，也可以改为 bottom:0; */
+  top: -150%;
+  background-color: #444;
+  min-width: 120px;
+  z-index: 100;
+  border-radius: 4px;
+}
+
+.footer-submenu li {
+  margin: 0;
+  padding: 5px 15px;
+  white-space: nowrap; /* 防止换行 */
+}
+
+.footer-submenu a {
+  color: #fff;
+}
+
+.footer-dropdown .footer-arrow {
+  font-size: 0.8em;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  color: #d1882f;
+  display: inline-block;
+}
+
+.footer-dropdown.open .footer-arrow {
+  transform: rotate(90deg); /* 展开时箭头转向 */
+}
+
+.footer-right {
+  flex: 1;
+  text-align: right;
+}
+
+.footer-right p {
+  margin: 6px 0;
+  color: #fff;
+}
+
+.footer-right i {
+  color: #d1882f;
+  margin-right: 6px;
+}
+
+/* Responsive styles for Top Navigation and Footer */
+@media screen and (max-width: 600px) {
   .topnav{
     display: block;
     padding-left: 0px;
     padding-right: 0px;
-    position: static; /* Revert for mobile */
-    background-color: #d1882f; /* Revert for mobile */
-  }
-
-  .topnav:hover {
-    background-color: #d1882f; /* Keep color on hover for mobile */
   }
 
   .topnav a:not(:first-child), .dropdown .dropbtn{
@@ -176,9 +280,6 @@
     float: right;
     display: block;
   }
-
-
-/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 
   .topnav.responsive {position: relative;}
   .topnav.responsive a.icon {
@@ -204,5 +305,23 @@
     display: block;
     width: 100%;
     text-align: left;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .footer-right {
+    text-align: left;
+    margin-top: 15px;
+  }
+
+  .footer-submenu {
+    left: 0; /* 手机版时下拉在下方 */
+    top: 100%;
   }
 }
