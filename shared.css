@@ -78,7 +78,7 @@ main {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding-top: 5px; /* Added to bridge the gap */
-  z-index: 1;
+  z-index: 100; /* Increased z-index to appear above hero section */
 }
 
 /* Style the links inside the dropdown */
@@ -134,7 +134,7 @@ main {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding-top: 5px; /* Added to bridge the gap */
-  z-index: 1;
+  z-index: 100; /* Increased z-index to appear above hero section */
 }
 
 /* Style the links inside the dropdown */

@@ -92,16 +92,16 @@ html, body {
 }
 
 .visit_index_cards{
-  margin-top: 40px;
-  margin-bottom: 40px;
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Create a 6-column grid */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
 
 .visit_index_card{
-  width: 300px;
+  grid-column: span 2; /* Each card spans 2 columns by default */
   border: none;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -109,6 +109,16 @@ html, body {
   background-color: #f8f9fa;
   text-align: center;
   padding: 20px;
+}
+
+.visit_index_card1,
+.visit_index_card2 {
+  grid-column: span 3; /* First two cards span 3 columns each (2 on top row) */
+}
+
+.visit_index_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 .visit_index_card img{
   width: auto;
@@ -131,11 +141,6 @@ html, body {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
-}
-
-.visit_index_card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .announcement{
@@ -180,6 +185,99 @@ html, body {
   font-size: 1.2rem;
   margin-top: 0;
 }
+
+/* New section for Past Events */
+.past-events-section {
+  margin-top: 50px; /* Add some space from the previous section */
+  background-color: #f0f0f0; /* Light grey background to differentiate the section */
+  padding: 40px 0;
+}
+
+.past-events-section h1 {
+  margin-top: 50px;
+  margin-left: 150px; /* Consistent with visit_index h1 */
+  font-size: 36px;
+  color: #333;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 4px solid #d1882f;
+  padding-bottom: 10px;
+  width: fit-content;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.past-events-cards {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 60px; /* Consistent with visit_index_cards */
+  flex-wrap: wrap;
+}
+
+.past-events-card {
+  width: 300px;
+  height: 400px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease;
+  color: white;
+}
+
+.past-events-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.past-events-card:hover {
+  transform: scale(1.05);
+}
+
+.past-events-card:hover img {
+  transform: scale(1.1);
+}
+
+.past-events-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  text-align: left;
+}
+
+.past-events-card-content h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.8rem;
+}
+
+.past-events-card-button {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.past-events-card-button:hover {
+  background-color: #d1882f;
+  color: white;
+}
+
 @media screen and (max-width: 600px) {
   .hero-slider {
     height: 500px; /* Adjust height for mobile */
@@ -220,12 +318,14 @@ html, body {
   }
 
   .visit_index_cards{
+    display: flex; /* Revert to flexbox for simplicity on mobile */
+    flex-direction: column;
+    align-items: center;
     gap: 20px;
-    margin: 20px;
   }
 
   .visit_index_card{
-    width: 90%;
+    width: 90%; /* Make cards take up most of the width */
   }
 
   .visit_index_card img {
@@ -250,5 +350,29 @@ html, body {
     background-color: #a66c24;
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Responsive styles for Past Events section */
+  .past-events-section h1 {
+    font-size: 2rem;
+    margin-left: 20px;
+  }
+
+  .past-events-cards {
+    gap: 20px;
+  }
+
+  .past-events-card {
+    width: 90%; /* Make cards full width on mobile */
+    height: 300px;
+  }
+  .past-events-card-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .past-events-card-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    margin-bottom: 20px; /* Add margin for spacing on mobile */
   }
 }

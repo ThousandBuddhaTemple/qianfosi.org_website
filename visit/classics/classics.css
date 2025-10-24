@@ -1,0 +1,115 @@
+/* Hero Section */
+.hero-section {
+    height: 25vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+}
+
+.hero-text {
+    position: relative; /* To be on top of the overlay */
+    z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+@media screen and (max-width: 600px) {
+    .hero-section {
+        height: 40vh;
+    }
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Classics Cards Section */
+.classics-cards-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+.classics-cards-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.classics-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 30px;
+    text-align: center;
+    flex: 1 1 calc(33.333% - 40px); /* Three cards per row with gap */
+    min-width: 280px; /* Minimum width for cards before wrapping */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.classics-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.classics-card h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.classics-card p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #d1882f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.download-btn:hover {
+    background-color: #b97424;
+    transform: translateY(-2px);
+}
+
+@media screen and (max-width: 768px) {
+    .classics-card {
+        flex: 1 1 calc(50% - 30px); /* Two cards per row on tablets */
+    }
+}
+@media screen and (max-width: 600px) {
+    .classics-card {
+        flex: 1 1 100%; /* One card per row on mobile */
+    }
+}
