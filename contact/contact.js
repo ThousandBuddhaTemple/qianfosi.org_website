@@ -1,31 +1,4 @@
-/* Topnav responsive function */
-function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
-
 document.addEventListener("DOMContentLoaded", function () {
-  // Footer dropdown logic
-  const dropdowns = document.querySelectorAll(".footer-dropdown");
-
-  dropdowns.forEach(drop => {
-    const submenu = drop.querySelector(".footer-submenu");
-    const arrow = drop.querySelector(".footer-arrow");
-
-    if (submenu && arrow) {
-      arrow.addEventListener("click", (e) => {
-        e.preventDefault();
-        const isOpen = submenu.style.display === "block";
-        submenu.style.display = isOpen ? "none" : "block";
-        drop.classList.toggle("open", !isOpen);
-      });
-    }
-  });
-
   // Contact form submission logic
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {

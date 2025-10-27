@@ -1,4 +1,8 @@
 /* General body styles for sticky footer and reset default margins */
+html {
+  scroll-behavior: smooth; /* Enable smooth scrolling for anchor links */
+}
+
 html, body {
   margin: 0;
   padding: 0;

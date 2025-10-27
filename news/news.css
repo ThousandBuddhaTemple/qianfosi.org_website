@@ -1,2 +1,138 @@
+/* Hero Section */
+.hero-section {
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+}
+
+.hero-text {
+    position: relative; /* To be on top of the overlay */
+    z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+.hero-text h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-top: 10px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    letter-spacing: 1px;
+}
+
 @media screen and (max-width: 600px) {
+    .hero-section {
+        height: 40vh;
+    }
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    .hero-text h2 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Article Content Section */
+.article-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+.article-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.article-main-image {
+    display: block; /* Needed for margin auto to work */
+    width: 800px;
+    height: auto;
+    border-radius: 8px;
+    margin: 10px auto 30px; /* Top, auto horizontal, bottom */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.article-container h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.article-container h2 {
+    font-size: 1.8rem;
+    color: #444;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    border-left: 4px solid #d1882f;
+    padding-left: 15px;
+}
+
+.article-container p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .article-section {
+        padding: 30px 10px;
+    }
+    .article-container {
+        padding: 20px;
+    }
+    .article-container h1 {
+        font-size: 2rem;
+    }
+    .article-container h2 {
+        font-size: 1.5rem;
+    }
+    .article-main-image {
+        width: 100%; /* Make image responsive on mobile */
+    }
+}
+
+/* Video Container for YouTube embeds */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 800px; /* Match the image width */
+    background: #000;
+    margin: 20px auto 30px; /* Center it */
+    border-radius: 8px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
