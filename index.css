@@ -1,3 +1,27 @@
+/* Make topnav transparent on desktop and restore color on hover */
+@media screen and (min-width: 601px) {
+  .topnav {
+    background-color: transparent;
+    transition: background-color 0.3s ease-in-out;
+    position: fixed; /* Fix the navbar to the top */
+    width: 100%;     /* Make it span the full width */
+    top: 0;          /* Position it at the very top */
+  }
+
+  .topnav:hover {
+    background-color: #d1882f; /* Original color from shared.css */
+  }
+
+  .active{
+    background-color: transparent;
+  }
+
+  .active:hover {
+  background-color: #333;
+  color: white;
+}
+}
+
 html, body {
   margin: 0;
   padding: 0;
