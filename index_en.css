@@ -75,6 +75,8 @@ html, body {
 .visit_index h1{
   margin-top: 50px;
   margin-left: 150px;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 36px;
   color: #333;
   text-align: left;
@@ -300,8 +302,12 @@ html, body {
     padding: 8px 16px;
   }
 
+  .announcement {
+    padding: 40px 20px;
+  }
+
   .announcement h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-left: 20px;
   }
 
@@ -312,8 +318,21 @@ html, body {
 
   .visit_index h1{
     font-size: 28px;
-    margin-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 30px;
+    border-bottom: none; /* Remove the original border */
+  }
+
+  .visit_index h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px; /* Set the width of the underline */
+    height: 4px; /* Set the thickness of the underline */
+    background-color: #d1882f;
   }
 
   .visit_index_cards{
@@ -354,7 +373,20 @@ html, body {
   /* Responsive styles for Past Events section */
   .past-events-section h1 {
     font-size: 2rem;
-    margin-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: none; /* Remove the original border */
+  }
+
+  .past-events-section h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px; /* Set the width of the underline */
+    height: 4px; /* Set the thickness of the underline */
+    background-color: #d1882f;
   }
 
   .past-events-cards {
