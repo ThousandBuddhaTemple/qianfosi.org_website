@@ -1,0 +1,377 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+/* Main section styles */
+
+.hero-slider {
+  height: 960px;
+  position: relative;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-text {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero-text h1 {
+  font-size: 80px;
+}
+
+.hero-text p {
+  margin-top: -50px;
+  font-size: 40px;
+}
+.hero-text button {
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: white;
+  background-color: #d1882f;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.hero-text button:hover {
+  background-color: #a66c24;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.visit_index h1{
+  margin-top: 50px;
+  margin-left: 150px;
+  font-size: 36px;
+  color: #333;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 4px solid #d1882f;
+  padding-bottom: 10px;
+  width: fit-content;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.visit_index_cards{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Create a 6-column grid */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.visit_index_card{
+  grid-column: span 2; /* Each card spans 2 columns by default */
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #f8f9fa;
+  text-align: center;
+  padding: 20px;
+}
+
+.visit_index_card1,
+.visit_index_card2 {
+  grid-column: span 3; /* First two cards span 3 columns each (2 on top row) */
+}
+
+.visit_index_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.visit_index_card img{
+  width: auto;
+  height: 100px;
+  object-fit: cover;
+}
+.visit_index_card h2{
+  margin-top: 15px;
+  font-size: 24px;
+  color: #333;
+}
+.visit_index_card_button{
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #d1882f;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.announcement{
+  background-image: url('images/DSC_0045.JPG');
+  background-size: cover;
+  background-position: center;
+  padding: 60px 100px;
+  text-align: center;
+  color: white;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.announcement::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay for text readability */
+  z-index: 1;
+}
+
+.announcement h1 {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  margin-left: 150px;
+  position: relative;
+  color: #fff;
+
+}
+
+.announcement h1, .announcement p {
+  position: relative;
+  z-index: 2;
+  margin: 10px 20px; /* Add some horizontal margin for text */
+}
+
+.announcement p {
+  font-size: 1rem;
+  margin-top: 0;
+}
+
+/* New section for Past Events */
+.past-events-section {
+  margin-top: 50px; /* Add some space from the previous section */
+  background-color: #f0f0f0; /* Light grey background to differentiate the section */
+  padding: 40px 0;
+}
+
+.past-events-section h1 {
+  margin-top: 50px;
+  margin-left: 150px; /* Consistent with visit_index h1 */
+  font-size: 36px;
+  color: #333;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 4px solid #d1882f;
+  padding-bottom: 10px;
+  width: fit-content;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.past-events-cards {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 60px; /* Consistent with visit_index_cards */
+  flex-wrap: wrap;
+}
+
+.past-events-card {
+  width: 300px;
+  height: 400px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease;
+  color: white;
+}
+
+.past-events-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.past-events-card:hover {
+  transform: scale(1.05);
+}
+
+.past-events-card:hover img {
+  transform: scale(1.1);
+}
+
+.past-events-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  text-align: left;
+}
+
+.past-events-card-content h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.8rem;
+}
+
+.past-events-card-button {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.past-events-card-button:hover {
+  background-color: #d1882f;
+  color: white;
+}
+
+@media screen and (max-width: 600px) {
+  .hero-slider {
+    height: 500px; /* Adjust height for mobile */
+  }
+
+  .hero-text {
+    top: 50%; /* Re-center vertically */
+    width: 90%;
+  }
+
+  .hero-text h1 {
+    font-size: 48px; /* Reduce font size for mobile */
+  }
+
+  .hero-text p {
+    font-size: 24px; /* Reduce font size for mobile */
+    margin-top: 0;
+  }
+  .hero-text button {
+    font-size: 16px; /* Reduce button font size for mobile */
+    padding: 8px 16px;
+  }
+
+  .announcement h1 {
+    font-size: 3rem;
+    margin-left: 20px;
+  }
+
+  .announcement p {
+    font-size: 1rem;
+    margin: 10px 20px;
+  }
+
+  .visit_index h1{
+    font-size: 28px;
+    margin-left: 20px;
+    margin-top: 30px;
+  }
+
+  .visit_index_cards{
+    display: flex; /* Revert to flexbox for simplicity on mobile */
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .visit_index_card{
+    width: 90%; /* Make cards take up most of the width */
+  }
+
+  .visit_index_card img {
+    height: 80px;
+  }
+  .visit_index_card h2 {
+    font-size: 20px;
+  }
+
+  .visit_index_card_button {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #d1882f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+    }
+
+  .visit_index_card_button:hover {
+    background-color: #a66c24;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Responsive styles for Past Events section */
+  .past-events-section h1 {
+    font-size: 2rem;
+    margin-left: 20px;
+  }
+
+  .past-events-cards {
+    gap: 20px;
+  }
+
+  .past-events-card {
+    width: 90%; /* Make cards full width on mobile */
+    height: 300px;
+  }
+  .past-events-card-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .past-events-card-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    margin-bottom: 20px; /* Add margin for spacing on mobile */
+  }
+}
