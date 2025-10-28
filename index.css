@@ -124,7 +124,6 @@ html, body {
   width: auto;
   height: 100px;
   object-fit: cover;
-  border-radius: 10px;
 }
 .visit_index_card h2{
   margin-top: 15px;
