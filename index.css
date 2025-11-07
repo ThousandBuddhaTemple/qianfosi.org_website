@@ -92,8 +92,9 @@ html, body {
 }
 
 .visit_index_cards{
-  display: grid;
-  grid-template-columns: repeat(6, 1fr); /* Create a 6-column grid */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
   max-width: 1200px;
   margin: 40px auto;
@@ -101,7 +102,8 @@ html, body {
 }
 
 .visit_index_card{
-  grid-column: span 2; /* Each card spans 2 columns by default */
+  flex: 1 1 200px; /* Flex-grow, flex-shrink, and basis */
+  max-width: 210px;
   border: none;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -109,11 +111,6 @@ html, body {
   background-color: #f8f9fa;
   text-align: center;
   padding: 20px;
-}
-
-.visit_index_card1,
-.visit_index_card2 {
-  grid-column: span 3; /* First two cards span 3 columns each (2 on top row) */
 }
 
 .visit_index_card:hover {
@@ -140,6 +137,10 @@ html, body {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+}
+
+.visit_index_card5{
+  display: none;
 }
 
 .announcement{
