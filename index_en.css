@@ -188,6 +188,21 @@ html, body {
   margin-top: 0;
 }
 
+/* Poster section for event flyers */
+.poster {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.poster img {
+  max-width: 100%;
+  width: auto;
+  max-height: 900px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 /* New section for Past Events */
 .past-events-section {
   margin-top: 50px; /* Add some space from the previous section */
